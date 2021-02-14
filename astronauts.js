@@ -20,6 +20,7 @@ const typeDefs = gql`
 const resolvers = {
   Astronaut: {
     __resolveReference(ref) {
+      console.log(` __resolveReference   `, ref); 
       return fetch(`${apiUrl}/astronauts/${ref.id}`).then(res => res.json());
     }
   },

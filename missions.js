@@ -38,7 +38,10 @@ const resolvers = {
   },
   Mission: {
     crew(mission) {
-      return mission.crew.map(id => ({ __typename: "Astronaut", id }));
+      // if it's a reference object, 
+      // you need to make sure that form resolver, you return an objec that has 
+      // contains typing field as well as id
+      return mission.crew.map(id => ({ __typename: "Astronaut", id, additionalProp:'can you see me?'  }));
     }
   },
   Query: {
